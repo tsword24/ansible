@@ -1,6 +1,6 @@
 - name: installing nginx
   hosts: frontend
-  become: yes
+  become: yes 
   tasks:
   - name: nginx
     ansible.builtin.package:
