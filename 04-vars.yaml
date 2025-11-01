@@ -1,0 +1,10 @@
+- name: playbook variables
+  hosts: frontend
+  vars:
+    COURSE: hello devops
+    DURATION: 10 HRS
+    MODE: Online
+  tasks:
+    - name: course
+      ansible.builtin.debug:
+        msg: "this {{ COURSE }} course is of {{ DURATION }} and the teaching mode is {{ MODE }}"
