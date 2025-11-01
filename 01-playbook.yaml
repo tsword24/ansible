@@ -1,6 +1,6 @@
-- name:"ping the node"
-  hosts:frontend #which server there are connecting to
-  #list of tasks/modules/collections
+- name: ping the server
+  hosts: frontend #which server you are connecting to 
+  #list of task/modules/collections
   tasks:
-  -name:ping
+  -name: ping
     ansible.builtin.ping:
