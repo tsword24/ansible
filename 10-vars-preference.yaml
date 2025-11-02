@@ -6,7 +6,7 @@
   vars_files:
     - course.yaml
   vars_prompt:
-  - name: username
+  - name: NAME
     prompt: what is your username?
     private: false
   tasks:
@@ -14,7 +14,7 @@
     vars:
       NAME: this is from task level
     ansible.builtin.debug:
-      msg: "hello ,the username is {{ username }},the password is {{ password }}"
+      msg: "hello ,the username is {{ NAME }},"
 
 
 #PREFERENCES
