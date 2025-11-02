@@ -4,7 +4,7 @@
   vars:
     NAME: this is from play level
   vars_files:
-    -course.yaml
+    - course.yaml
   vars_prompt:
   - name: username
     prompt: what is your username?
