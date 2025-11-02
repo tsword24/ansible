@@ -1,10 +1,11 @@
-- name: playbook variables
-  hosts: frontend
+- name: play level variables
+  hosts: local
+  connection: local #ansible is connecting to localhost
   vars:
     COURSE: hello devops
     DURATION: 10 HRS
     MODE: Online
   tasks:
-    - name: course
+    - name: print the course info
       ansible.builtin.debug:
         msg: "this {{ COURSE }} course is of {{ DURATION }} and the teaching mode is {{ MODE }}"
