@@ -4,11 +4,11 @@
   vars:
     NAME: this is from play level
   # vars_files:
-  #   - course.yaml
-  vars_prompt:
-  - name: NAME
-    prompt: what is your username?
-    private: false
+  # #   - course.yaml
+  # vars_prompt:
+  # - name: NAME
+  #   prompt: what is your username?
+  #   private: false
   tasks:
   - name: course info
     # vars:
