@@ -1,16 +1,26 @@
-- name: variables from the prompt
+- name: variables preference
   hosts: local
   connection: local
   vars:
-    NAME: 
+    NAME: this is from play level
+  vars_files:
+    -course.yaml
   vars_prompt:
   - name: username
     prompt: what is your username?
     private: false
-  - name: password
-    prompt: what is your password?
-    private: true
   tasks:
   - name: course info
+    vars:
+      NAME: this is from task level
     ansible.builtin.debug:
       msg: "hello ,the username is {{ username }},the password is {{ password }}"
+
+
+#PREFERENCES
+#FROM COMMAND LINE
+#FROM TASK LEVEL
+#FROM FILES
+#FROM PROMPT
+#FROM PLAY LEVEL
+#FROM INVENTORY
