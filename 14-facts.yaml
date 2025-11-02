@@ -1,6 +1,7 @@
 - name: check the ansible facts
   hosts: local
   connection: local
+  become: yes
   tasks:
   - name: install nginx if red hat
     ansible.builtin.dnf:
