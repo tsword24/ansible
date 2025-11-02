@@ -1,0 +1,7 @@
+- name: argument variables
+  hosts: local
+  connection: local
+  tasks:
+  - name: course info
+    ansible.builtin.debug:
+      msg: "The {{ COURSE }} course is  {{ DURATION }} of duration and the teaching mode is {{ MODE }}"
