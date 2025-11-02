@@ -5,7 +5,7 @@
   tasks:
   - name: printing names
     ansible.builtin.debug:
-      msg: "{{ item }}" 
+      msg: "{{ item }}"
     loop:
     - Ramesh
     - Suresh

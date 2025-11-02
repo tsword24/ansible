@@ -3,8 +3,11 @@
   connection: local
   become: yes
   tasks:
-  - name: install nginx if red hat
-    ansible.builtin.dnf:
-      name: nginx
-      state: latest
-  
+  - name: installing packages
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: latest  #item keyword is reserved 
+    loop:
+    - nginx
+    - zip
+    - mysql
