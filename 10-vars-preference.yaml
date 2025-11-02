@@ -11,8 +11,8 @@
     private: false
   tasks:
   - name: course info
-    vars:
-      NAME: this is from task level
+    # vars:
+    #   NAME: this is from task level
     ansible.builtin.debug:
       msg: "hello ,the username is {{ NAME }},"
 
