@@ -11,3 +11,7 @@
   - name: print the output errors
     ansible.builtin.debug:
       msg: "{{ user_output }}"
+
+  - name: print the output errors
+    ansible.builtin.command: useradd roboshop
+    when: user_output.rc != 0
