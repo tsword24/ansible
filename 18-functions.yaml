@@ -1,0 +1,53 @@
+- name: functions
+  hosts: local
+  connection: local
+  vars:
+    technologies: Devops,shell,linux,aws
+    name: "SvSK"
+    ip_address: 4656.65465.9811.5
+    #dictionary==tags
+    tags:
+      Application: payment
+      Environment: Devops
+    listTags:
+    - key: Application
+      value: payment
+    - key: Environment
+      value: Devops
+  tasks:
+  - name: default functions
+    ansible.builtin.debug:
+      msg: "Print {{ name | default('Ramesh') }}"
+  
+  - name: splitting the string to list
+    ansible.builtin.debug:
+      msg: "technologies are : {{ technologies | split(',') }}"
+
+  - name: printing dictionary
+    ansible.builtin.debug:
+      msg: "the tags are {{ tags | dict2items }}"
+  
+  - name: printing list items to dictionary
+    ansible.builtin.debug:
+      msg: "the tags are {{ listTagstags | items2dict }}"
+
+  - name: read yaml and take into variable
+    ansible.builtin.set_fact:
+      student_yaml: "{{ lookup('file','student.yaml') | from_yaml }}"
+  
+  - name: printing json
+    ansible.builtin.debug:
+      msg: "{{ student_yaml | to_json }}"
+  
+  - name: copying to file
+    ansible.builtin.copy:
+      dest: ./student-data.json
+      content: "{{ student_yaml | to_nice_json }}"
+  
+  - name: convertying to uppper case
+    ansible.builtin.debug:
+      msg: "{{ name | upper }}"
+
+  - name: check if it is a valid ipv4 address
+    ansible.builtin.debug:
+      msg: "{{ ip_address | ansible.util.ipv4 }}"
